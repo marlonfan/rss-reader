@@ -74,9 +74,6 @@
       <el-header>
         <h1>
           RSS Reader
-          << if gt .AutoUpdatePush 0 >>
-            <span v-show="isPc"><br/>{{ countdown }} s</span>
-          << end >>
         </h1>
       </el-header>
       <el-main v-loading.fullscreen.lock="fullscreenLoading" element-loading-text="拼命加载中">
