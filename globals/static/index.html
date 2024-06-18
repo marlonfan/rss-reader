@@ -86,25 +86,7 @@
                     << $feed.Title >>
                   </span>
                 </div>
-                <div v-if="isPc">
-                  <el-scrollbar style="height: 300px;">
-                    << range $i, $item :=$feed.Items >>
-                      <el-list key="<< $i >>">
-                        <el-list-item>
-                          <div class="list-item-title">
-                            <span>
-                              << inc $i >>.
-                            </span>
-                            <el-link href="<< $item.Link >>" target="_blank" title="<< $item.Title >>">
-                              << $item.Title >>
-                            </el-link>
-                          </div>
-                        </el-list-item>
-                      </el-list>
-                    << end >>
-                  </el-scrollbar>
-                </div>
-                <div v-else>
+                <el-scrollbar style="height: 300px;">
                   << range $i, $item :=$feed.Items >>
                     <el-list key="<< $i >>">
                       <el-list-item>
@@ -119,7 +101,7 @@
                       </el-list-item>
                     </el-list>
                   << end >>
-                </div>
+                </el-scrollbar>
                 <div slot="footer" class="card-footer" style="height: 10px;">
                   <time class="time">
                     << $feed.Custom.lastupdate >>
@@ -133,19 +115,7 @@
                   <div slot="header" class="card-header">
                     <span>{{ feed.title }}</span>
                   </div>
-                  <div v-if="isPc">
-                    <el-scrollbar v-show="isPc" style="height: 300px;">
-                      <el-list v-for="(item, i) in feed.items" :key="i">
-                        <el-list-item>
-                          <div class="list-item-title">
-                            <span>{{ i+1 }}. </span>
-                            <el-link :href="item.link" target="_blank" :title="item.title">{{ item.title }}</el-link>
-                          </div>
-                        </el-list-item>
-                      </el-list>
-                    </el-scrollbar>
-                  </div>
-                  <div v-else>
+                  <el-scrollbar style="height: 300px;">
                     <el-list v-for="(item, i) in feed.items" :key="i">
                       <el-list-item>
                         <div class="list-item-title">
@@ -154,7 +124,7 @@
                         </div>
                       </el-list-item>
                     </el-list>
-                  </div>
+                  </el-scrollbar>
                   <div slot="footer" class="card-footer" style="height: 10px;">
                     <time class="time">{{ feed.custom.lastupdate }}</time>
                   </div>
